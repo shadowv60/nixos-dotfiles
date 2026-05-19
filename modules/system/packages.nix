@@ -7,11 +7,11 @@
     playerctl
     wl-clipboard
     libmtp
-    mtpfs
-    kdePackages.kio-extras
     android-tools
     tree
     appimage-run
+    parallel
+    zed-editor
     # inputs.self.packages.${pkgs.system}.spotiflac
     unrar
     thunar
@@ -25,6 +25,7 @@
     mpc
     grim
     slurp
+    heroic
     wlsunset
     hyprsunset
     docker-compose

@@ -8,7 +8,7 @@
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/wolk/opus";
+    musicDirectory = "/home/wolk/opus new";
     dataDir = "/home/wolk/.local/share/mpd";
     network.listenAddress = "127.0.0.1";
     network.port = 6600;
