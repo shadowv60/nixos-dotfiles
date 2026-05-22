@@ -46,3 +46,19 @@ dashboard.section.buttons.val = {
 }
 
 require("alpha").setup(dashboard.opts)
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "AlphaReady",
+    callback = function()
+        vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    end,
+})
+
+vim.api.nvim_create_autocmd("BufUnload", {
+    buffer = 0,
+    callback = function()
+        vim.api.nvim_set_hl(0, "Normal", { bg = require("nord.colors").nord0_gui })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = require("nord.colors").nord0_gui })
+    end,
+})

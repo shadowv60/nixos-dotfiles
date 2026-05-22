@@ -15,7 +15,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend("force", capabilities, require("mini.completion").get_lsp_capabilities())
 
 vim.lsp.config("*", { capabilities = capabilities })
--- vim.lsp.config("nil")
+
 vim.lsp.config("lua_ls", {
     settings = {
         Lua = {
@@ -28,6 +28,12 @@ vim.lsp.config("nil", {   -- or "nil" — must match the key in vim.lsp.enable
     cmd = { "nil" },
     filetypes = { "nix" },
     root_markers = { "flake.nix", ".git" },
+})
+
+vim.lsp.config("rust_analyzer", {
+    cmd = { vim.fn.stdpath("data") .. "/mason/bin/rust-analyzer" },
+    filetypes = { "rust" },
+    root_markers = { "Cargo.toml", "Cargo.lock", ".git" },
 })
 
 vim.lsp.enable({

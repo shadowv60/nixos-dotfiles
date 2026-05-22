@@ -46,7 +46,7 @@
       "src": "https://github.com/shaunsingh/nord.nvim"
     },
     "nvim-lspconfig": {
-      "rev": "dfbada1a311c4bf3369f8d5421369c9b6e8b888f",
+      "rev": "3f89b128cce48db1a2b7d5664a306b21f5f26652",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {

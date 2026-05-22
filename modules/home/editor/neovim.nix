@@ -18,6 +18,7 @@
     tree-sitter
     unzip
     cargo
+    rustc
     ripgrep
     fd
     # mason needs these to install LSPs
