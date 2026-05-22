@@ -1,10 +1,15 @@
 { config, pkgs, ... }:
 
+let
+  # Replace this path with the absolute path to your local git dotfiles repository
+  dotfilesDir = "/home/wolk/nixos-dotfiles";
+in
 {
   home.packages = [ pkgs.rmpc ];
 
-  # This links the local folder ./rmpc/ to ~/.config/rmpc/
-  home.file.".config/rmpc".source = ./rmpc;
+  # Creates a mutable out-of-store symlink pointing directly to your local files
+  home.file.".config/rmpc".source =
+    config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/modules/home/music/rmpc";
 
   services.mpd = {
     enable = true;

@@ -16,23 +16,13 @@
   home.packages = with pkgs; [
     neovim
     tree-sitter
+    unzip
+    cargo
     ripgrep
     fd
+    # mason needs these to install LSPs
     gcc
+    gnumake
     nodejs
-    unzip
-    nil
-    ruff
-    pyright
-    llvmPackages.clang-unwrapped
-    cargo
-    rustc
-    rust-analyzer
-    clippy
-    rustfmt
-    statix
-    deadnix
-    nixfmt
-    lua-language-server
   ];
 }

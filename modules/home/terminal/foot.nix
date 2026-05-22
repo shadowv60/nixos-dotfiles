@@ -9,28 +9,29 @@
 
       colors-dark = {
         alpha = 0.85;
-        foreground = "bbb49d";
-        background = "1e2224";
-        regular0 = "1e2224"; # black
-        regular1 = "636862"; # red
-        regular2 = "85867a"; # green
-        regular3 = "bbb49d"; # yellow
-        regular4 = "636862"; # blue
-        regular5 = "85867a"; # magenta
-        regular6 = "bbb49d"; # cyan
-        regular7 = "bbb49d"; # white
+        foreground = "e2e8f0"; # Crisp Light
+        background = "1a1d24"; # Deep Base
 
-        bright0 = "49504f"; # bright black
-        bright1 = "85867a"; # bright red
-        bright2 = "bbb49d"; # bright green
-        bright3 = "ece6d9"; # bright yellow
-        bright4 = "85867a"; # bright blue
-        bright5 = "ece6d9"; # bright magenta
-        bright6 = "ece6d9"; # bright cyan
+        regular0 = "1a1d24"; # black
+        regular1 = "5c677d"; # red (Dim Blue)
+        regular2 = "5c677d"; # green (Dim Blue)
+        regular3 = "9db8d2"; # yellow (Steel Blue)
+        regular4 = "343a47"; # blue (Muted Slate)
+        regular5 = "9db8d2"; # magenta (Steel Blue)
+        regular6 = "9db8d2"; # cyan (Steel Blue)
+        regular7 = "c5d3e8"; # white (Frost)
+
+        bright0 = "343a47"; # bright black
+        bright1 = "9db8d2"; # bright red
+        bright2 = "9db8d2"; # bright green
+        bright3 = "c5d3e8"; # bright yellow
+        bright4 = "5c677d"; # bright blue
+        bright5 = "c5d3e8"; # bright magenta
+        bright6 = "c5d3e8"; # bright cyan
         bright7 = "ffffff"; # bright white
 
-        selection-foreground = "1e2224";
-        selection-background = "bbb49d";
+        selection-foreground = "1a1d24";
+        selection-background = "9db8d2";
       };
 
       tweak = {

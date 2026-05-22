@@ -15,15 +15,16 @@
       color = {
         gradient = 1;
         gradient_count = 8;
-        # Note: We use double quotes for hex codes in Nix
-        gradient_color_1 = "'#293134'";
-        gradient_color_2 = "'#49504f'";
-        gradient_color_3 = "'#49504f'";
-        gradient_color_4 = "'#636862'";
-        gradient_color_5 = "'#85867a'";
-        gradient_color_6 = "'#85867a'";
-        gradient_color_7 = "'#bbb49d'";
-        gradient_color_8 = "'#ece6d9'";
+
+        # Abyss & Steel Gradient Interpolation
+        gradient_color_1 = "'#1a1d24'"; # Deep Base (Bottom of the bars)
+        gradient_color_2 = "'#343a47'"; # Muted Slate
+        gradient_color_3 = "'#343a47'"; # Muted Slate
+        gradient_color_4 = "'#5c677d'"; # Dim Blue
+        gradient_color_5 = "'#5c677d'"; # Dim Blue
+        gradient_color_6 = "'#9db8d2'"; # Steel Blue (Main visual accent)
+        gradient_color_7 = "'#9db8d2'"; # Steel Blue
+        gradient_color_8 = "'#c5d3e8'"; # Frost (Peak frequencies)
       };
 
       input = {

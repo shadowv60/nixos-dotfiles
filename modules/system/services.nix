@@ -16,6 +16,21 @@
     pulse.enable = true;
     alsa.enable = true;
     jack.enable = true;
+    wireplumber.extraConfig = {
+      "10-default-profile" = {
+        "monitor.alsa.rules" = [
+          {
+            matches = [ { "device.name" = "alsa_card.pci-0000_00_1f.3"; } ];
+            actions = {
+              update-props = {
+                "api.acp.auto-profile" = true;
+                "api.acp.auto-port" = true;
+              };
+            };
+          }
+        ];
+      };
+    };
   };
   programs.appimage = {
     enable = true;

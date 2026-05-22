@@ -9,40 +9,40 @@
 }
 
 window#waybar {
-  background-color: #1e2224;
-  color: #bbb49d;
+  background-color: #1a1d24; /* Deep Base Background */
+  color: #9db8d2;            /* Steel Blue Default Text */
 }
 
 #window {
-  color: #ece6d9;
+  color: #e2e8f0;            /* Crisp Light for Window Title */
   padding: 0 8px;
 }
 
 #workspaces button {
   background: transparent;
-  color: #bbb49d;
+  color: #9db8d2;            /* Steel Blue Inactive Workspaces */
   padding: 0 6px;
   border-radius: 0;
   min-width: 0;
 }
 
 #workspaces button.active {
-  color: #ece6d9;
+  color: #e2e8f0;            /* Crisp Light Active Workspace */
 }
 
 #workspaces button.urgent {
-  color: #1e2224;
-  background-color: #bbb49d;
+  color: #1a1d24;            /* Deep Base Text */
+  background-color: #c5d3e8; /* High-Contrast Frost Alert Background */
 }
 
 #workspaces button:hover {
   background: transparent;
   box-shadow: none;
-  color: #ece6d9;
+  color: #e2e8f0;            /* Crisp Light Hover Effect */
 }
 
 #custom-layout {
-  color: #ece6d9;
+  color: #e2e8f0;            /* Crisp Light Layout Indicator */
   padding: 0 6px;
 }
 
@@ -52,6 +52,6 @@ window#waybar {
 #custom-wifi,
 #custom-volume,
 #custom-datetime {
-  color: #bbb49d;
+  color: #9db8d2;            /* Cohesive Steel Blue Status Modules */
   padding: 0 4px;
 }

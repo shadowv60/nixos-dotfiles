@@ -1,15 +1,17 @@
 { pkgs, ... }:
 
 {
-  home-manager.users.wolk = {
-    programs.waybar = {
-      enable = true;
-      # This ensures Waybar is installed
-      package = pkgs.waybar;
-    };
+  # Pass 'config' into the home-manager user block
+  home-manager.users.wolk =
+    { config, ... }:
+    {
+      programs.waybar = {
+        enable = true;
+        package = pkgs.waybar;
+      };
 
-    # Link the configuration and styling
-    xdg.configFile."waybar/config".source = ./waybar/config.jsonc;
-    xdg.configFile."waybar/style.css".source = ./waybar/style.css;
-  };
+      # Out-of-store symlinks to allow live-saving changes
+      xdg.configFile."waybar".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/modules/system/wm/waybar";
+    };
 }

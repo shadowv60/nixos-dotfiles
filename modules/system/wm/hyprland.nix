@@ -1,17 +1,20 @@
 { pkgs, ... }:
-
 {
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
 
-  # Optional: Adds support for screen sharing and portals
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
-  # Link the config file using Home Manager
-  home-manager.users.wolk.xdg.configFile."hypr/hyprland.conf".source = ./hypr/hyprland.conf;
+  # Restructured to allow Home Manager's 'config' to be accessed
+  home-manager.users.wolk =
+    { config, ... }:
+    {
+      xdg.configFile."hypr".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/modules/system/wm/hypr";
+    };
 }
