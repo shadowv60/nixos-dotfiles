@@ -56,13 +56,14 @@ static const Layout layouts[] = {
 /* Volume & Audio (Pipewire) */
 #define VOL_UPDATE "pkill -RTMIN+6 dwmblocks"
 
-static const char *volup[]   = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ +5% && " VOL_UPDATE, NULL };
-static const char *voldown[] = { "/bin/sh", "-c", "pactl set-sink-volume @DEFAULT_SINK@ -5% && " VOL_UPDATE, NULL };
-static const char *volmute[] = { "/bin/sh", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle && " VOL_UPDATE, NULL };
+static const char *volup[]   = { "/bin/sh", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && " VOL_UPDATE, NULL };
+static const char *voldown[] = { "/bin/sh", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && " VOL_UPDATE, NULL };
+static const char *volmute[] = { "/bin/sh", "-c", "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && " VOL_UPDATE, NULL };
 static const char *playpause[] = { "playerctl", "play-pause", NULL };
 
 /* Apps */
-static const char *browser[]     = { "zen-browser", NULL };
+static const char *browser[]     = { "zen-beta", NULL };
+static const char *roficmd[]     = { "rofi", "-show", "drun", NULL };
 static const char *yazicmd[]     = { "st", "-c", "yazi_term", "-e", "yazi", NULL };
 static const char *rmpccmd[]     = { "st", "-c", "rmpc_term", "-e", "rmpc", NULL };
 static const char *cavacmd[]     = { "st", "-c", "cava_term", "-e", "cava", NULL };
@@ -89,7 +90,8 @@ static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */
-    { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+    { MODKEY,                       XK_a,      spawn,          {.v = dmenucmd } },
+    { MODKEY,                       XK_d,      spawn,          {.v = roficmd } },
     { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
     { MODKEY,                       XK_r,      togglebar,      {0} },
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },

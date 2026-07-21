@@ -26,8 +26,12 @@
     grim
     slurp
     heroic
+    xclip
+    redshift
     wlsunset
     hyprsunset
+    xwallpaper
+    picom
     docker-compose
     lazydocker
     android-file-transfer

@@ -1,9 +1,13 @@
 #!/bin/sh
-mute_status=$(pactl get-sink-mute @DEFAULT_SINK@)
 
-if echo "$mute_status" | grep -q "yes"; then
+# Get volume info from pipewire
+vol_info=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+
+# Check for mute status first
+if echo "$vol_info" | grep -q "MUTED"; then
     echo " Muted"
 else
-    percent=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+(?=%)' | head -1)
+    # Extract the decimal, multiply by 100, and round to nearest whole number
+    percent=$(echo "$vol_info" | awk '{print int($2 * 100 + 0.5)}')
     echo " ${percent}%"
 fi
