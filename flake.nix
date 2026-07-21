@@ -6,6 +6,9 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    xlibre-overlay = {
+      url = "git+https://codeberg.org/takagemacoed/xlibre-overlay?ref=dev-for-26.05";
+    };
     # prismlauncher-cracked.url = "github:Diegiwg/PrismLauncher-Cracked";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     # mangowm = {
@@ -17,7 +20,6 @@
       flake = false;
     };
   };
-
   outputs =
     {
       self,
@@ -25,7 +27,7 @@
       home-manager,
       ab-download-manager-src,
       # prismlauncher-cracked,
-      # mangowm, # add this
+      # mangowm,
       ...
     }@inputs:
     let
@@ -45,7 +47,7 @@
           { nixpkgs.hostPlatform = system; }
           ./hosts/nixos-btw
           home-manager.nixosModules.home-manager
-          # mangowm.nixosModules.mango # add this
+          # mangowm.nixosModules.mango
           {
             home-manager = {
               extraSpecialArgs = { inherit inputs; };
