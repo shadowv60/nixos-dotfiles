@@ -7,136 +7,83 @@
       logo = {
         type = "data";
         source = ''
-          $1          ▗▄▄▄        $2.*#&.    ,~=,
-          $1          ▜███▙       $2&*+)^  %*^@*
-          $1           ▜███▙       $2>=-@\/%*$)
-          $1            ▜███▙       $2}(!-)$^]
-          $1     ▟█████████████████▙ $2&(#@)/     $1▟▙
-          $1    ▟███████████████████▙ $2$]<$\    $1▟██▙
-          $2           ,___,           !)::&  $1▟███▛
-          $2          [$*@#           %#!$ $1▟███▛
-          $2         &*%!^                \/ $1▟███▛
-          $2/)(*&!#$_#>)* $1▟██████████▙
-          $2\!@#*@#%<>?&                  $1▟███████████▛
-          $2      *}^#* $1▟▙                ▟███▛
-          $2     &[!@) $1▟██▙              ▟███▛
-          $2    /#$)$  $1▜███▙            ▝▀▀▀▀
-          $2    <][(    $1▜███▙ $2%&!~)$&!_)$*!@#$(<>/
-          $2     ^@      $1▟████▙ $2^?><!#$!(*&%!_%^)/
-          $1           ▟██████▙       $2*(!)\
-          $1          ▟███▛▜███▙       $2{>@%!
-          $1         ▟███▛  ▜███▙       $2&^#$|
-          $1         ▝▀▀▀    ▀▀▀▀▘       $2"*="
+                       ___   __              
+                /¯\    \  \ /  ;             
+                \  \    \  v  /              
+             /¯¯¯   ¯¯¯¯\\   /  /\           
+            ’————————————·\  \ /  ;          
+                 /¯¯;      \ //  /_          
+           _____/  /        ‘/     \         
+           \      /,        /  /¯¯¯¯         
+            ¯¯/  // \      /__/              
+             .  / \  \·————————————.         
+              \/  /   \\_____   ___/         
+                 /  ,  \      \  \           
+                 \_/ \__\     \_/            
         '';
-        position = "left";
-        color = {
-          "1" = "blue";
-          "2" = "green";
+        padding = {
+          top = 1;
+          left = 2;
+          right = 4;
         };
       };
       display = {
-        separator = " · ";
-        color = {
-          title = "green";
-          keys = "white";
-        };
-        bar = {
-          width = 10;
-          char = {
-            elapsed = "■";
-            total = "─";
-          };
-        };
+        separator = "";
       };
       modules = [
+        { type = "custom"; key = "╭───────────╮"; }
         {
           type = "title";
-          format = "{user-name-colored}@{host-name-colored}";
-          color = {
-            user = "green";
-            at = "white";
-            host = "blue";
-          };
+          key = "│ {#31} User    {#keys}│";
+          format = "{user-name}";
         }
-        "break"
-        # {
-        #   type = "disk";
-        #   key = "DISK";
-        #   keyColor = "blue";
-        #   format= "wolk";
-        # }
-        {
-          type = "disk";
-          key = "├ disk";
-          folders = "/";
-        }
-        # {
-        #   type = "display";
-        #   key = "├ res ";
-        # }
-        "break"
         {
           type = "os";
-          key = "OS";
-          keyColor = "blue";
+          key = "│ {#34}󱄅 Distro  {#keys}│";
         }
         {
           type = "kernel";
-          key = "├ krnl";
+          key = "│ {#35} Kernel  {#keys}│";
         }
         {
           type = "uptime";
-          key = "└ up  ";
+          key = "│ {#33}󰅐 Uptime  {#keys}│";
         }
-        "break"
-        {
-          type = "host";
-          key = "PC";
-          keyColor = "green";
-        }
-        {
-          type = "cpu";
-          key = "├ cpu ";
-          temp = true;
-        }
-        {
-          type = "gpu";
-          key = "├ gpu ";
-          driverSpecific = true;
-        }
-        {
-          type = "memory";
-          key = "├ ram ";
-          format = "{1} / {2} - {4}";
-        }
-        {
-          type = "swap";
-          key = "└ swap";
-          format = "{1} / {2} - {4}";
-        }
-        "break"
         {
           type = "packages";
-          key = "PKGS";
-          keyColor = "blue";
-        }
-        {
-          type = "wm";
-          key = "├ wm  ";
-        }
-        {
-          type = "terminal";
-          key = "├ term";
+          key = "│ {#33}󰚺 Pkgs    {#keys}│";
         }
         {
           type = "shell";
-          key = "├ sh  ";
+          key = "│ {#32} Shell   {#keys}│";
         }
         {
-          type = "editor";
-          key = "└ edit";
-          format = "nvim";
+          type = "wm";
+          key = "│ {#36} WM      {#keys}│";
         }
+        {
+          type = "terminal";
+          key = "│ {#31} Terminal{#keys}│";
+        }
+        {
+          type = "cpu";
+          key = "│ {#33}󰍛 CPU     {#keys}│";
+        }
+        {
+          type = "memory";
+          key = "│ {#36} Memory  {#keys}│";
+        }
+        {
+          type = "disk";
+          key = "│ {#32}󰋊 Storage {#keys}│";
+        }
+        { type = "custom"; key = "├───────────┤"; }
+        {
+          type = "colors";
+          key = "│ {#39} Colors  {#keys}│";
+          symbol = "circle";
+        }
+        { type = "custom"; key = "╰───────────╯"; }
       ];
     };
   };

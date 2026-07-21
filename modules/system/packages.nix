@@ -26,6 +26,7 @@
     grim
     slurp
     heroic
+    scrot
     xclip
     redshift
     wlsunset
