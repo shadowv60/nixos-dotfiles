@@ -12,15 +12,15 @@
     appimage-run
     parallel
     zed-editor
-    # inputs.self.packages.${pkgs.system}.spotiflac
     unrar
     thunar
   ];
   userPackages = with pkgs; [
     localsend
+    # inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.spotiflac
     inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
-    inputs.self.packages.${pkgs.system}.ab-download-manager
-    # inputs.prismlauncher-cracked.packages.${pkgs.system}.default
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.ab-download-manager
+    # inputs.prismlauncher-cracked.packages.${pkgs.stdenv.hostPlatform.system}.default
     btop
     mpc
     grim
