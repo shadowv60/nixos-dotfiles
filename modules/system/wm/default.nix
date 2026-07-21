@@ -5,6 +5,6 @@
     ./slstatus.nix
     ./hyprland.nix
     ./waybar.nix
-    ./mango.nix
+    # ./mango.nix
   ];
 }

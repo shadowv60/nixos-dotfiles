@@ -6,12 +6,12 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    prismlauncher-cracked.url = "github:Diegiwg/PrismLauncher-Cracked";
+    # prismlauncher-cracked.url = "github:Diegiwg/PrismLauncher-Cracked";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    mangowm = {
-      url = "github:mangowm/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # mangowm = {
+    #   url = "github:mangowm/mango";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     ab-download-manager-src = {
       url = "https://github.com/amir1376/ab-download-manager/releases/download/v1.8.7/ABDownloadManager_1.8.7_linux_x64.tar.gz";
       flake = false;
@@ -24,8 +24,8 @@
       nixpkgs,
       home-manager,
       ab-download-manager-src,
-      prismlauncher-cracked,
-      mangowm, # add this
+      # prismlauncher-cracked,
+      # mangowm, # add this
       ...
     }@inputs:
     let
@@ -45,7 +45,7 @@
           { nixpkgs.hostPlatform = system; }
           ./hosts/nixos-btw
           home-manager.nixosModules.home-manager
-          mangowm.nixosModules.mango # add this
+          # mangowm.nixosModules.mango # add this
           {
             home-manager = {
               extraSpecialArgs = { inherit inputs; };

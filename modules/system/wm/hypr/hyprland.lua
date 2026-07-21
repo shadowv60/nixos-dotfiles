@@ -19,7 +19,7 @@ hl.monitor({
 ---------------------
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("swaybg -i ~/walls/a_blue_and_white_image_of_a_mountain.png")
+    hl.exec_cmd("swaybg -i ~/walls/Minimal-Nord.png")
     hl.exec_cmd("waybar")
 end)
 

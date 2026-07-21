@@ -37,17 +37,17 @@
         ];
       };
       open = {
-        prepend_rules = [
-          { mime = "inode/directory"; use = "open"; }
-          { mime = "text/*"; use = "edit"; }
-          { mime = "application/javascript"; use = "edit"; }
-          { mime = "application/json"; use = "edit"; }
-          { name = "*.{md,txt,conf,toml,yaml,yml,lua,fish,py,rs}"; use = "edit"; }
-          { mime = "audio/*"; use = "play"; }
-          { mime = "video/*"; use = "play"; }
-          { mime = "*"; use = "zen-beta"; }
-        ];
-      };
+  prepend_rules = [
+    { mime = "inode/directory"; use = "open"; }
+    { mime = "text/*"; use = "edit"; }
+    { mime = "application/javascript"; use = "edit"; }
+    { mime = "application/json"; use = "edit"; }
+    { url = "*.{md,txt,conf,toml,yaml,yml,lua,fish,py,rs}"; use = "edit"; }
+    { mime = "audio/*"; use = "play"; }
+    { mime = "video/*"; use = "play"; }
+    { mime = "*"; use = "zen-beta"; }
+  ];
+};
     };
 
     plugins = with pkgs.yaziPlugins; {
