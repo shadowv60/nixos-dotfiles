@@ -27,7 +27,7 @@ end)
 ---- MY PROGRAMS ----
 ---------------------
 
-local terminal = "kitty"
+local terminal = "foot"
 local fileManager = "thunar"
 local menu = "rofi -show drun"
 

@@ -28,7 +28,9 @@
     heroic
     scrot
     xclip
+    flac
     redshift
+    opustags
     wlsunset
     hyprsunset
     xwallpaper
