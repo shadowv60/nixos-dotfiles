@@ -5,5 +5,6 @@
     ./dlmusic.nix
     # ./addlyrics.nix
     ./convertflac.nix
+    ./ytlyrics.nix
   ];
 }

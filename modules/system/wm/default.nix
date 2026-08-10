@@ -6,6 +6,7 @@
     ./hyprland.nix
     ./waybar.nix
     ./dwm.nix
+    ./oxwm.nix
     # ./mango.nix
   ];
 }

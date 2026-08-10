@@ -6,9 +6,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    xlibre-overlay = {
-      url = "git+https://codeberg.org/takagemacoed/xlibre-overlay?ref=dev-for-26.05";
-    };
     # prismlauncher-cracked.url = "github:Diegiwg/PrismLauncher-Cracked";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     # mangowm = {

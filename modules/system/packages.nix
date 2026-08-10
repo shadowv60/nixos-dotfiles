@@ -10,8 +10,8 @@
     android-tools
     tree
     appimage-run
+    p7zip
     parallel
-    zed-editor
     unrar
     thunar
   ];

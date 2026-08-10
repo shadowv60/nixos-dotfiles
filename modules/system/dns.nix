@@ -61,13 +61,13 @@
         if [ -n "$IP" ]; then
           ${pkgs.curl}/bin/curl -sSfL --retry 5 --retry-delay 3 --retry-connrefused \
             --resolve "$HOST:443:$IP" \
-            "https://$HOST/hagezi/dns-blocklists/main/domains/pro.txt" \
+            "https://$HOST/hagezi/dns-blocklists/main/wildcard/pro.txt" \
             -o /var/cache/dnscrypt-proxy/blocked-names.txt
         else
           # Fall back to normal resolution in case dnscrypt-proxy is
           # actually ready by now.
           ${pkgs.curl}/bin/curl -sSfL --retry 8 --retry-delay 5 --retry-connrefused \
-            "https://$HOST/hagezi/dns-blocklists/main/domains/pro.txt" \
+            "https://$HOST/hagezi/dns-blocklists/main/wildcard/pro.txt" \
             -o /var/cache/dnscrypt-proxy/blocked-names.txt
         fi
 

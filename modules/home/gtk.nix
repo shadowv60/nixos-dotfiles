@@ -1,109 +1,122 @@
 { config, pkgs, ... }:
-
 let
+  # Gruvbox dark palette (hard contrast bg)
+  bg0 = "#1d2021"; # hardest background
+  bg1 = "#282828"; # main background
+  bg2 = "#3c3836"; # selection / hover
+  bg3 = "#504945"; # subtle borders
+  bg4 = "#665c54"; # lighter borders
+  fg1 = "#ebdbb2"; # main text
+  fg2 = "#d5c4a1"; # secondary text
+  gray = "#928374"; # dim/metadata text
+  blue = "#458588"; # accent
+
   customCss = ''
     /* =========================================================================
-     * ABYSS & STEEL - AGGRESSIVE GTK3/GTK4 RESET FOR THUNAR
+     * GRUVBOX DARK - adw-gtk3 palette overrides + GTK3/GTK4 OVERRIDES FOR THUNAR
      * ========================================================================= */
+    @define-color theme_bg_color ${bg1};
+    @define-color theme_base_color ${bg1};
+    @define-color theme_fg_color ${fg1};
+    @define-color theme_text_color ${fg1};
 
-    /* Global Fallbacks */
-    @define-color theme_bg_color #1a1d24;
-    @define-color theme_base_color #1a1d24;
-    @define-color theme_fg_color #e2e8f0;
-    @define-color theme_text_color #e2e8f0;
+    /* libadwaita / adw-gtk3 named colors */
+    @define-color window_bg_color ${bg1};
+    @define-color window_fg_color ${fg1};
+    @define-color view_bg_color ${bg1};
+    @define-color view_fg_color ${fg1};
+    @define-color headerbar_bg_color ${bg0};
+    @define-color headerbar_fg_color ${fg1};
+    @define-color headerbar_border_color ${bg3};
+    @define-color popover_bg_color ${bg0};
+    @define-color popover_fg_color ${fg1};
+    @define-color card_bg_color ${bg2};
+    @define-color card_fg_color ${fg1};
+    @define-color accent_bg_color ${blue};
+    @define-color accent_fg_color ${fg1};
+    @define-color accent_color ${blue};
+    @define-color borders ${bg3};
 
-    /* Force Main Window Frame & Panels */
-    window, 
-    grid, 
-    paned, 
-    box {
-        background-color: #1a1d24;
+    window, grid, paned, box {
+        background-color: ${bg1};
     }
 
-    /* --- MAIN FILE VIEW CONTAINER --- */
+    /* Main file view */
     ThunarWindow ThunarView,
     ThunarWindow GtkTreeView,
     ThunarWindow ExoIconView,
     ThunarWindow GtkViewport {
-        background-color: #1a1d24 !important;
-        color: #e2e8f0 !important;
+        background-color: ${bg1};
+        color: ${fg1};
     }
 
-    /* --- SIDEBAR (PLACES / TREE) --- */
+    /* Sidebar */
     ThunarWindow .sidebar,
     ThunarWindow .sidebar GtkTreeView,
     ThunarWindow .sidebar scrolledwindow {
-        background-color: #14161c !important; /* Slightly deeper base for visual hierarchy */
-        color: #9db8d2 !important;              /* Steel Blue text */
+        background-color: ${bg0};
+        color: ${fg2};
     }
 
-    /* --- ROW SELECTIONS & HOVERS --- */
+    /* Selection / hover */
     ThunarWindow GtkTreeView:selected,
     ThunarWindow ExoIconView:selected,
     ThunarWindow .sidebar GtkTreeView:selected,
-    .view:selected, 
+    .view:selected,
     .view:selected:focus {
-        background-color: #343a47 !important; /* Muted Slate block */
-        color: #e2e8f0 !important;            /* Crisp white text */
+        background-color: ${bg3};
+        color: ${fg1};
     }
-
     ThunarWindow GtkTreeView:hover,
     ThunarWindow ExoIconView:hover,
     ThunarWindow .sidebar GtkTreeView:hover {
-        background-color: #232730 !important;
+        background-color: ${bg2};
     }
 
-    /* --- TOP BREADCRUMBS / PATH BAR --- */
+    /* Path bar / breadcrumbs */
     ThunarWindow GtkToolbar,
     ThunarWindow .path-bar {
-        background-color: #1a1d24 !important;
+        background-color: ${bg1};
         border: none;
         padding: 4px;
     }
-
     ThunarWindow .path-bar GtkButton {
-        background-color: #232730;
-        color: #9db8d2;
-        border: 1px solid #343a47;
+        background-color: ${bg2};
+        color: ${fg2};
+        border: 1px solid ${bg3};
         border-radius: 4px;
         padding: 4px 8px;
         margin: 0 2px;
     }
-
     ThunarWindow .path-bar GtkButton:checked {
-        background-color: #343a47 !important;
-        color: #e2e8f0 !important;
-        border-color: #5c677d;
+        background-color: ${bg3};
+        color: ${fg1};
+        border-color: ${bg4};
     }
-
     ThunarWindow .path-bar GtkButton:hover {
-        background-color: #2c323e;
-        color: #e2e8f0;
+        background-color: ${blue};
+        color: ${fg1};
     }
 
-    /* --- MENUBAR & TOOLBARS --- */
-    menubar, 
-    menu, 
-    menuitem {
-        background-color: #1a1d24 !important;
-        color: #e2e8f0 !important;
+    /* Menus */
+    menubar, menu, menuitem {
+        background-color: ${bg1};
+        color: ${fg1};
         padding: 4px;
     }
-
     menuitem:hover {
-        background-color: #343a47 !important;
+        background-color: ${bg3};
     }
 
-    /* --- STATUS BAR (BOTTOM) --- */
+    /* Status bar */
     ThunarWindow GtkStatusbar,
     ThunarWindow GtkStatusbar box {
-        background-color: #14161c !important;
-        color: #5c677d !important; /* Dim Blue metadata text */
+        background-color: ${bg0};
+        color: ${gray};
     }
 
-    /* Clean up borders and lines */
     separator {
-        background-color: #343a47 !important;
+        background-color: ${bg3};
     }
   '';
 in
@@ -112,13 +125,22 @@ in
     enable = true;
 
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.gruvbox-plus-icons;
     };
 
     theme = {
-      name = "Arc-Dark";
-      package = pkgs.arc-theme;
+      # gruvbox-gtk-theme depended on gtk-engine-murrine, which nixpkgs removed
+      # (unmaintained, GTK2-only). adw-gtk3 is a maintained GTK3 theme with no
+      # murrine dependency; Gruvbox is applied on top via extraCss below.
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };
+
+    font = {
+      # Already installed on the system, so no package needed here.
+      name = "JetBrainsMono Nerd Font";
+      size = 10;
     };
 
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;

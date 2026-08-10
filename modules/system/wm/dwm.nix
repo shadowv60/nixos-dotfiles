@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 let
    dwm-custom = pkgs.stdenv.mkDerivation rec {
   pname = "dwm-custom";
@@ -68,10 +68,6 @@ let
 
 in
 {
-  imports = [
-    inputs.xlibre-overlay.nixosModules.overlay-xlibre-xserver
-    inputs.xlibre-overlay.nixosModules.overlay-all-xlibre-drivers
-  ];
   services.xserver.enable = true;
   services.displayManager.sessionPackages = [ dwm-custom ];
   services.dbus.enable = true;
