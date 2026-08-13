@@ -26,6 +26,7 @@
     grim
     slurp
     heroic
+    alacritty
     scrot
     xclip
     flac

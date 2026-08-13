@@ -86,7 +86,7 @@ static const char *thunarcmd[]   = { "thunar", NULL };
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_bg, "-nf", col_fg_norm, "-sb", col_border_norm, "-sf", col_fg_sel, "-l", "10", NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */

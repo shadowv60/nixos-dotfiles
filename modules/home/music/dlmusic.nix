@@ -4,7 +4,7 @@
     yt-dlp
     jq
     ffmpeg
-    (python3.withPackages (ps: [ ps.mutagen ps.ytmusicapi ]))
+    (python3.withPackages (ps: [ ps.mutagen ps.ytmusicapi ps.musicbrainzngs ]))
   ];
 
   programs.fish.functions = {
