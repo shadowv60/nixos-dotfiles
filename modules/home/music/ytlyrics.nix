@@ -13,15 +13,17 @@
       set dir (dirname $opus_path)
       set lrc_path "$dir/$filename.lrc"
 
-      set title (python3 -c "
+      set title (env OPUS="$opus_path" FALLBACK="$filename" python3 -c "
+import os
 from mutagen.oggopus import OggOpus
-a = OggOpus('$opus_path')
+a = OggOpus(os.environ['OPUS'])
 v = a.get('title')
-print(v[0] if v else '$filename')
+print(v[0] if v else os.environ['FALLBACK'])
 ")
-      set artist (python3 -c "
+      set artist (env OPUS="$opus_path" python3 -c "
+import os
 from mutagen.oggopus import OggOpus
-a = OggOpus('$opus_path')
+a = OggOpus(os.environ['OPUS'])
 v = a.get('artist')
 print(v[0] if v else 'Unknown')
 ")

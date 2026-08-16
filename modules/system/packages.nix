@@ -38,6 +38,7 @@
     picom
     docker-compose
     lazydocker
+    picard
     android-file-transfer
     qbittorrent
     telegram-desktop

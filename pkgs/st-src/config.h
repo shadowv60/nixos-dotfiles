@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "JetBrains Mono Nerd Font:pixelsize=16:antialias=true:autohint=true, Noto Sans CJK JP:pixelsize=16:antialias=true:autohint=true";
-static int borderpx = 1;
+static int borderpx = 2;
 
 /* How to align the content in the window when the size of the terminal
  * doesn't perfectly match the size of the window. The values are percentages.
@@ -131,6 +131,8 @@ static const char *colorname[] = {
         "#ebdbb2", /* default foreground colour */
         "#282828", /* default background colour */
 };
+
+
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
@@ -206,10 +208,13 @@ static uint forcemousemod = ShiftMask;
  * Internal mouse shortcuts.
  * Beware that overloading Button1 will disable the selection.
  */
+const unsigned int mousescrollincrement = 5;
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
 	{ TERMMOD,              Button3, previewimage,   {.s = "feh"} },
 	{ TERMMOD,              Button2, showimageinfo,  {},            1 },
+    { XK_ANY_MOD,           Button4, kscrollup,      {.i = mousescrollincrement},		0, /* !alt */ -1 },\
+	{ XK_ANY_MOD,           Button5, kscrolldown,    {.i = mousescrollincrement},		0, /* !alt */ -1 },
 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
 	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
@@ -222,10 +227,6 @@ static Shortcut shortcuts[] = {
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
-	{ ShiftMask,            XK_Home,        kscrollup,      {.i = 1000000} },
-	{ ShiftMask,            XK_End,         kscrolldown,    {.i = 1000000} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
 	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
@@ -235,6 +236,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+    { ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 	{ TERMMOD,              XK_F1,          togglegrdebug,  {.i =  0} },
 	{ TERMMOD,              XK_F6,          dumpgrstate,    {.i =  0} },
 	{ TERMMOD,              XK_F7,          unloadimages,   {.i =  0} },
@@ -510,8 +513,3 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
-
-/*
- * The amount of lines scrollback can hold before it wraps around.
- */
-unsigned int scrollback_lines = 5000;
