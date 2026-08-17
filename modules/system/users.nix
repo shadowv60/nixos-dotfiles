@@ -20,7 +20,10 @@
   };
   console.useXkbConfig = true;
   fonts.packages = with pkgs; [
+    jetbrains-mono
     nerd-fonts.jetbrains-mono
+    noto-fonts
+    noto-fonts-cjk-sans
     nerd-fonts.symbols-only
   ];
 }

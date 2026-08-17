@@ -5,8 +5,16 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-static int borderpx = 2;
+/* Ensure font fallback uses proper Xft syntax */
+/* Appearance */
+static char *font = "JetBrains Mono Nerd Font:pixelsize=16:antialias=true:autohint=true";
+
+/* Spare fallback fonts for missing glyphs (Braille, CJK, etc.) */
+static char *font2[] = {
+    "DejaVu Sans:pixelsize=16:antialias=true:autohint=true",
+    "Noto Sans CJK JP:pixelsize=16:antialias=true:autohint=true",
+};
+static int borderpx = 1;
 
 /* How to align the content in the window when the size of the terminal
  * doesn't perfectly match the size of the window. The values are percentages.
@@ -84,6 +92,10 @@ static int bellvolume = 0;
 /* default TERM value */
 char *termname = "st-256color";
 
+const int boxdraw = 0;         /* Enable boxdraw drawing? */
+const int boxdraw_bold = 0;    /* Draw bold as bright? */
+const int boxdraw_braille = 0; /* Enable braille rendering? */
+
 /*
  * spaces per tab
  *
@@ -102,37 +114,34 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.8;
+float alpha = 0.89;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
-
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
-
-	[255] = 0,
-
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"gray90", /* default foreground colour */
-	"black", /* default background colour */
+    /* 8 normal colors */
+    "#282828", /* Black */
+    "#cc241d", /* Red */
+    "#98971a", /* Green */
+    "#d79921", /* Yellow */
+    "#458588", /* Blue */
+    "#b16286", /* Magenta */
+    "#689d6a", /* Cyan */
+    "#a89984", /* White */
+    /* 8 bright colors */
+    "#928374", /* Bright Black */
+    "#fb4934", /* Bright Red */
+    "#b8bb26", /* Bright Green */
+    "#fabd2f", /* Bright Yellow */
+    "#83a598", /* Bright Blue */
+    "#d3869b", /* Bright Magenta */
+    "#8ec07c", /* Bright Cyan */
+    "#ebdbb2", /* Bright White */
+        [255] = 0,
+        /* more colors can be added after 255 to use with DefaultXX */
+        "#ebdbb2",
+        "#282828",
+        "#ebdbb2", /* default foreground colour */
+        "#282828", /* default background colour */
 };
 
 

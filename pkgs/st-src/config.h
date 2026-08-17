@@ -5,7 +5,15 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "JetBrains Mono Nerd Font:pixelsize=16:antialias=true:autohint=true, Noto Sans CJK JP:pixelsize=16:antialias=true:autohint=true";
+/* Ensure font fallback uses proper Xft syntax */
+/* Appearance */
+static char *font = "JetBrains Mono Nerd Font:pixelsize=16:antialias=true:autohint=true";
+
+/* Spare fallback fonts for missing glyphs (Braille, CJK, etc.) */
+static char *font2[] = {
+    "DejaVu Sans:pixelsize=16:antialias=true:autohint=true",
+    "Noto Sans CJK JP:pixelsize=16:antialias=true:autohint=true",
+};
 static int borderpx = 1;
 
 /* How to align the content in the window when the size of the terminal
@@ -83,6 +91,10 @@ static int bellvolume = 0;
 
 /* default TERM value */
 char *termname = "st-256color";
+
+const int boxdraw = 0;         /* Enable boxdraw drawing? */
+const int boxdraw_bold = 0;    /* Draw bold as bright? */
+const int boxdraw_braille = 0; /* Enable braille rendering? */
 
 /*
  * spaces per tab
