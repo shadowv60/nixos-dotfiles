@@ -21,6 +21,7 @@
     rustc
     ripgrep
     fd
+    alejandra # nix formater
     # mason needs these to install LSPs
     gcc
     gnumake

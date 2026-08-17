@@ -24,10 +24,17 @@ vim.lsp.config("lua_ls", {
     },
 })
 
-vim.lsp.config("nil", {   -- or "nil" — must match the key in vim.lsp.enable
+vim.lsp.config("nil", {
     cmd = { "nil" },
     filetypes = { "nix" },
     root_markers = { "flake.nix", ".git" },
+    settings = {
+        ["nil"] = {
+            formatting = {
+                command = { "alejandra" },
+            },
+        },
+    },
 })
 
 vim.lsp.config("rust_analyzer", {
