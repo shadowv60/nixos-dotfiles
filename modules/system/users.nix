@@ -6,7 +6,7 @@
       "wheel"
       "video"
       "audio"
-      "docker"
+      # "docker"
       "kvm"
       "libvirtd"
     ];

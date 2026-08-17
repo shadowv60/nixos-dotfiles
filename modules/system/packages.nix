@@ -36,8 +36,8 @@
     hyprsunset
     xwallpaper
     picom
-    docker-compose
-    lazydocker
+    # docker-compose
+    # lazydocker
     picard
     android-file-transfer
     qbittorrent

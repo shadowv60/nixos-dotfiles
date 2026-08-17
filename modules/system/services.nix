@@ -5,7 +5,7 @@
   services.openssh.enable = true;
   services.displayManager.sessionPackages = [ pkgs.hyprland ];
   services.displayManager.ly.enable = true;
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 53317 ];
