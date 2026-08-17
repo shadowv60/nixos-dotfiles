@@ -1,12 +1,18 @@
 vim.pack.add({
-	"https://github.com/shaunsingh/nord.nvim",
+    "https://github.com/ellisonleao/gruvbox.nvim",
     "https://github.com/nvim-tree/nvim-web-devicons",
     "https://github.com/nvim-lualine/lualine.nvim",
 })
 
--- lua line
-local custom_nord = require'lualine.themes.nord'
+require("gruvbox").setup({
+    -- optional: contrast = "hard" | "soft" | "" (default)
+})
+vim.o.background = "dark" -- or "light"
+vim.cmd.colorscheme("gruvbox")
+
+-- lualine
+local custom_gruvbox = require('lualine.themes.gruvbox')
 require('lualine').setup {
-  options = { theme  = custom_nord },
+  options = { theme = custom_gruvbox },
   ...
 }

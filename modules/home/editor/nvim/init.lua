@@ -16,5 +16,3 @@ require("plugins.persistence")
 require("plugins.flash")
 require("plugins.comment")
 require("plugins.bufferline")
--- colorscheme
-vim.cmd.colorscheme("nord")

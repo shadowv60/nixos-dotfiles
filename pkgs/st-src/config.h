@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "JetBrains Mono Nerd Font:pixelsize=16:antialias=true:autohint=true, Noto Sans CJK JP:pixelsize=16:antialias=true:autohint=true";
-static int borderpx = 2;
+static int borderpx = 1;
 
 /* How to align the content in the window when the size of the terminal
  * doesn't perfectly match the size of the window. The values are percentages.

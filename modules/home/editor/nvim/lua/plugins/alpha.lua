@@ -58,7 +58,8 @@ vim.api.nvim_create_autocmd("User", {
 vim.api.nvim_create_autocmd("BufUnload", {
     buffer = 0,
     callback = function()
-        vim.api.nvim_set_hl(0, "Normal", { bg = require("nord.colors").nord0_gui })
-        vim.api.nvim_set_hl(0, "NormalFloat", { bg = require("nord.colors").nord0_gui })
+        local palette = require("gruvbox").palette
+        vim.api.nvim_set_hl(0, "Normal", { bg = palette.dark0 })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = palette.dark0 })
     end,
 })
