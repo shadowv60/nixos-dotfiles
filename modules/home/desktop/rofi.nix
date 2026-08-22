@@ -3,7 +3,7 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi;
-    theme = "nord";
+    theme = "gruv";
   };
   xdg.configFile."rofi/gruv.rasi".source = ./rofi-themes/gruv.rasi;
   xdg.configFile."rofi/mono.rasi".source = ./rofi-themes/mono.rasi;
