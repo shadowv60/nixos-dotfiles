@@ -22,6 +22,8 @@
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.ab-download-manager
     # inputs.prismlauncher-cracked.packages.${pkgs.stdenv.hostPlatform.system}.default
     btop
+    claude-code
+    opencode
     mpc
     grim
     slurp
@@ -36,7 +38,7 @@
     hyprsunset
     xwallpaper
     picom
-    # docker-compose
+    docker-compose
     # lazydocker
     picard
     android-file-transfer
